@@ -1,11 +1,12 @@
 import React from "react";
 import "./Item.css";
 
-const Item = ({ item }) => {
+const Item = ({ strMeal, strMealThumb, idMeal }) => {
   return (
     <div className="item">
-      <h3>{item.name}</h3>
-      <p>{item.description}</p>
+      <h3>{strMeal}</h3>
+      <img src={strMealThumb} alt={strMeal} />
+      <p>ID: {idMeal}</p>
     </div>
   );
 };

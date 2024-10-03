@@ -1,16 +1,18 @@
 import React from "react";
 import "./ItemList.css";
+import Item from "../Item/Item";
 const ItemList = ({ items }) => {
   return (
     <div className="item-list">
       <h2>Item List</h2>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>
-            <Item item={item} />
-          </li>
-        ))}
-      </ul>
+      {items.map(({ strMeal, strMealThumb, idMeal }) => (
+        <Item
+          key={idMeal}
+          strMeal={strMeal}
+          strMealThumb={strMealThumb}
+          idMeal={idMeal}
+        />
+      ))}
     </div>
   );
 };

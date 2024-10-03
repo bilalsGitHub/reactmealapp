@@ -1,0 +1,16 @@
+/* Header.css */
+.card-header {
+  background-color: #4caf50; /* Yeşil bir arka plan rengi */
+  padding: 20px; /* İçerik çevresinde boşluk */
+  text-align: center; /* Metni ortala */
+  border-radius: 8px; /* Hafif yuvarlatılmış köşeler */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif bir gölge */
+  color: white; /* Metin rengi beyaz */
+}
+
+.card-header h2 {
+  margin: 0; /* Başlığın etrafındaki varsayılan boşluğu kaldır */
+  font-size: 24px; /* Yazı boyutu */
+  font-weight: bold; /* Kalın yazı */
+  color: #fff;
+}

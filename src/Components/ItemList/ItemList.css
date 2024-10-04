@@ -1,5 +1,7 @@
 .item-list {
-  max-width: 600px;
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;

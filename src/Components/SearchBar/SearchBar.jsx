@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 
-const SearchBar = ({ gettheinput }) => {
+const SearchBar = ({ gettheinput, gettherandommeal }) => {
   const [input, setInput] = useState(""); // setinput yerine setInput yapıldı.
 
   const inputHandler = (event) => {
@@ -11,6 +11,11 @@ const SearchBar = ({ gettheinput }) => {
   const handleSubmit = (event) => {
     event.preventDefault(); // Formun varsayılan submit davranışını engelle
     gettheinput(input); // Form submit edildiğinde input değerini üst bileşene gönder
+  };
+
+  const gettherandommealhandler = () => {
+    console.log("Search bar");
+    gettherandommeal();
   };
 
   return (
@@ -23,6 +28,9 @@ const SearchBar = ({ gettheinput }) => {
           placeholder="Type in"
         />
         <button type="submit">Submit</button> {/* Formu göndermek için buton */}
+        <button type="button" onClick={gettherandommealhandler}>
+          Get a random meal
+        </button>{" "}
       </form>
     </div>
   );

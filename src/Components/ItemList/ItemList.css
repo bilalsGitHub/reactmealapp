@@ -1,12 +1,14 @@
 .item-list {
-  width: 1000px;
+  width: fit-content;
+  max-width: 1400px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: #a8dadc;
 }
 
 .item-list h2 {

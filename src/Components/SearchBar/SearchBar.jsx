@@ -14,7 +14,6 @@ const SearchBar = ({ gettheinput, gettherandommeal }) => {
   };
 
   const gettherandommealhandler = () => {
-    console.log("Search bar");
     gettherandommeal();
   };
 

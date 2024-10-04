@@ -1,0 +1,15 @@
+.categorie {
+  margin: 20px 10px;
+  border: black 2px 2px;
+  background-color: #e63946;
+  padding: 20px;
+  height: 100px;
+  height: fit-content;
+  width: fit-content;
+  border: 10px solid #ffffff;
+  border-radius: 20px;
+}
+
+.categorie:hover {
+  background-color: blue;
+}

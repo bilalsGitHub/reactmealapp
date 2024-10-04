@@ -3,10 +3,10 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import ItemList from "./Components/ItemList/ItemList";
 import axios from "axios";
+import Categories from "./Components/Categories/Categories";
 
 function App() {
   const [input, setInput] = useState("");
-  const [random, setRandom] = useState(false);
   const [items, setItems] = useState([]);
 
   const gettheinputcallback = (input) => {
@@ -15,13 +15,22 @@ function App() {
     setInput(""); // Arama terimini sıfırla
   };
 
-  const fetchData = async (term = "", isRandom = false) => {
+  const fetchData = async (term = "", isRandom = false, strCategory = "") => {
     try {
       let response;
       if (isRandom) {
         response = await axios.get(
           "https://www.themealdb.com/api/json/v1/1/random.php"
         );
+
+        if (strCategory.trim().length != 0) {
+          const categoryResponse = await axios.get(
+            `https://www.themealdb.com/api/json/v1/1/filter.php?c=${strCategory}`
+          );
+          setItems(categoryResponse.data.meals || []); // Use meals from the category response
+          console.log(categoryResponse.data.meals);
+          return; // Exit the function after fetching by category
+        }
       } else {
         response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`
@@ -30,6 +39,7 @@ function App() {
 
       if (response.data.meals) {
         setItems(response.data.meals);
+        console.log(response.data.meals);
       } else {
         setItems([]); // Eğer veri yoksa boş bir dizi ayarla
       }
@@ -43,16 +53,20 @@ function App() {
   }, []);
 
   const gettherandommealhandler = () => {
-    setRandom(true);
     fetchData("", true); // random true, arama terimi boş
   };
 
+  const fetchMealsByCategory = (categoryname) => {
+    console.log("categoryname" + categoryname);
+    fetchData("", true, categoryname);
+  };
   return (
     <>
       <Header
         gettherandommeal={gettherandommealhandler}
         gettheinput={gettheinputcallback}
       />
+      <Categories onclick={fetchMealsByCategory}></Categories>
       <h1>App jsx</h1>
       <h1>{input}</h1>
       <ItemList items={items} /> {/* items dizisini doğrudan gönderiyoruz */}

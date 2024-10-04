@@ -3,7 +3,8 @@
   margin: 20px;
   padding: 2rem;
   text-align: center;
-  background-color: purple;
+  background-color: #1d3557;
   width: 1920px;
   height: fit-content;
+  align-items: center;
 }
